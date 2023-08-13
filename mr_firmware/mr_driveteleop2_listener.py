@@ -40,9 +40,9 @@ class DTeleopListener(Node):
     def angulos(self,servo,data,min,max):
         grados=degrees(data)
         angulo=int(self.my_map(grados,-90,90,min,max))
-        if angulo<240:
+        if angulo>240:
             angulo=240
-        elif angulo>0:
+        elif angulo<0:
             angulo=0
         servo.moveTimeWrite(angulo)
 
